@@ -27,7 +27,7 @@ function Board({ isnextxo, squares, onPlay, name1, name2, draw }) {
   }
 
   return (
-    <>
+    <div>
       <div className="status">{status}</div>
       <div className="boardbox">
       <div className='tic_toe_board'>
@@ -42,7 +42,7 @@ function Board({ isnextxo, squares, onPlay, name1, name2, draw }) {
       <Square xo={squares[8]} onSquareClick={() => handleClick(8)} />
     </div>
     </div>
-    </>
+    </div>
   );
 }
 
@@ -69,8 +69,8 @@ export default function Game() {
   const [currentMove, setCurrentMove] = useState(0);
   const isnextxo = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
-  const [player1, setPlayer1] = useState('');
-  const [player2, setPlayer2] = useState('');
+  const [player1, setPlayer1] = useState('X');
+  const [player2, setPlayer2] = useState('Y');
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
